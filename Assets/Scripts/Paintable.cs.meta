@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 76e164aa979f947e3a7a438f64265a96
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - lineGeneratorPrefeb: {fileID: 1119424641309660, guid: 8260d1397d23346dca3281b17c314c05,
+      type: 2}
+  - magicPencilBtn: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5694803ef99654ddaa3c33fae4c9a317
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pointLightPrefab: {fileID: 1903584514067100, guid: 67d725ab1405c4cd3b7a8721044f860a,
+      type: 2}
+  - snowPrefab: {fileID: 1418983668938084, guid: e5618f4a17cc44617b6e52c06a361818,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
