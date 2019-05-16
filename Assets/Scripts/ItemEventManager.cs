@@ -16,6 +16,12 @@ public partial class ItemEventManager : MonoBehaviour {
 	private string itemDataAPILink = LevelUtil.itemDataAPILink;
     private Items items;
 
+    private GameObject player;
+
+    private LayerMask enemyLayer;
+
+    private Animator playerAnimator;
+
     private void Awake()
     {
         if (Instance == null){
@@ -26,6 +32,13 @@ public partial class ItemEventManager : MonoBehaviour {
         }
         
         StartCoroutine(GetItemDataFromServer());
+    }
+
+    void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+        playerAnimator = player.GetComponent<Animator>();
+        enemyLayer = LayerMask.GetMask("Enemy");
     }
 
     private IEnumerator GetItemDataFromServer()
@@ -66,32 +79,11 @@ public partial class ItemEventManager : MonoBehaviour {
         }
 
     }
-
-	public void ShowItemStory(int id, Sprite sprite){
-        Debug.Log("using item in general context");
-        Item item = ItemData[id];
-        GameObject panelAndText = UIManager.Instance.TextFeedbackPanel;
-        // priority: solving puzzle, battle, general;
-        //if (  PlayerContext.Instance.inPuzzle1Area && item.CanSolvePuzzle1 != 0){
-        //    trySolvePuzzle1(item, panelAndText);
-        //} else 
-
-        // edit: puzzle sovling is now tied to the game controller of level.
-
-        if (  PlayerContext.Instance.inBattle && item.Attack >= 1){
-            // Use as weapon and autofight;
-        } else {
-
-        }
-            
-    }
    
 
     private void TryUseWeapon(Item item, GameObject panelAndText)
     {
         Debug.Log("if you re in a battle, this will be a weapon.");
     }
-
-
 
 }

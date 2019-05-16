@@ -9,6 +9,9 @@ TagManager:
   - HUD
   - InventoryUI
   - SceneManager
+  - HydratedBarUI
+  - Singleton
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -21,7 +24,7 @@ TagManager:
   - foreGround
   - Player
   - Items
-  - 
+  - Enemy
   - 
   - 
   - 

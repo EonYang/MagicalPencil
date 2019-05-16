@@ -4,7 +4,15 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
+  - UMPPrefab: {fileID: 1081512025545936, guid: ae904a10fb178421f930324a9257c79f,
+      type: 2}
   - pointLightPrefab: {fileID: 1903584514067100, guid: 67d725ab1405c4cd3b7a8721044f860a,
+      type: 2}
+  - spotLightPrefab: {fileID: 1430010546053930, guid: 34b61150dd95a4af7aac3154d10e5b9a,
+      type: 2}
+  - fuckoffPrefab: {fileID: 21300000, guid: 3f4c20d4d5870424db27592b2913285c, type: 3}
+  - diffuse2D: {fileID: 2100000, guid: d40f34671367e48fc9a78c0fac4b5b31, type: 2}
+  - rainPrefab: {fileID: 1073609257641086, guid: 936404b8e984242acba396beda6e092e,
       type: 2}
   - snowPrefab: {fileID: 1418983668938084, guid: e5618f4a17cc44617b6e52c06a361818,
       type: 2}

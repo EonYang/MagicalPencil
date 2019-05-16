@@ -19,12 +19,28 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4510502555280312}
-  - component: {fileID: 114139948986909422}
-  - component: {fileID: 114360293975627040}
-  - component: {fileID: 114783117303454994}
+  - component: {fileID: 114462274209584072}
+  - component: {fileID: 114903791432177090}
+  - component: {fileID: 114432579903738048}
   m_Layer: 0
   m_Name: GlobalPersistentManager
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1805355593093836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4634211531305174}
+  - component: {fileID: 114513422499613832}
+  m_Layer: 0
+  m_Name: KillParentOnReload
+  m_TagString: Singleton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,11 +54,36 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.46, y: -5.2, z: -2.6799998}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4634211531305174}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114139948986909422
+--- !u!4 &4634211531305174
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1805355593093836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4510502555280312}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114432579903738048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1767060813845154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312c8cf79efc64163b7af245d8578897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114462274209584072
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,8 +94,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5694803ef99654ddaa3c33fae4c9a317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UMPPrefab: {fileID: 1081512025545936, guid: ae904a10fb178421f930324a9257c79f, type: 2}
+  pointLightPrefab: {fileID: 1903584514067100, guid: 67d725ab1405c4cd3b7a8721044f860a,
+    type: 2}
+  spotLightPrefab: {fileID: 1430010546053930, guid: 34b61150dd95a4af7aac3154d10e5b9a,
+    type: 2}
+  fuckoffPrefab: {fileID: 21300000, guid: 3f4c20d4d5870424db27592b2913285c, type: 3}
+  diffuse2D: {fileID: 2100000, guid: d40f34671367e48fc9a78c0fac4b5b31, type: 2}
+  rainPrefab: {fileID: 1073609257641086, guid: 936404b8e984242acba396beda6e092e, type: 2}
+  snowPrefab: {fileID: 1418983668938084, guid: e5618f4a17cc44617b6e52c06a361818, type: 2}
   ItemData: []
---- !u!114 &114360293975627040
+--- !u!114 &114513422499613832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1805355593093836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312c8cf79efc64163b7af245d8578897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114903791432177090
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,28 +123,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1767060813845154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 737e32a00edeb4448ac853f4b8e1c959, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fceba3b19ea744a09f13782e52bb9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 60
---- !u!114 &114783117303454994
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1767060813845154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5824500e174847d697a12abe6195f41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  closeToWater: 0
-  inPuzzleArea: 0
-  inBattle: 0
-  inDark: 0
-  hot: 0
-  cold: 0
-  bleeding: 0
-  inRain: 0
-  hasElectricity: 0
-  canCook: 0
+  SlotsNum: 5
+  Inventory: []
+  slotPrefab: {fileID: 1580928627949506, guid: 2f71c8d9a21c040e28f7a3e96ad66732, type: 2}

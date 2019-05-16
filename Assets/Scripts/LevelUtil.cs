@@ -21,6 +21,8 @@ public static class LevelUtil {
 	}
 	public static void RestartScene()
     {
+        Debug.Log("restarting scene");
+        GameObject.FindWithTag("Singleton").GetComponent<DestroySingleton>().SelfDestroy();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

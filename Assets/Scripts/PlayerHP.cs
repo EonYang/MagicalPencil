@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHP : MonoBehaviour {
 
 	public static PlayerHP Instance;
+
+    public int PlayerHydrated = 100;
     
     public int HP;
 
@@ -37,19 +41,35 @@ public class PlayerHP : MonoBehaviour {
         while (true)
         {
             //do something
-            if (PlayerContext.Instance.feelingCold)
+            if (!Enumerable.Range(0,40).Contains(PlayerContext.Instance.tempreture))
             {
                 AdjustHP(-1);
             }
 
+            if (PlayerContext.Instance.inDesert && !PlayerContext.Instance.isSnowing)
+            {
+                AdjustHydrated(-1);
+            }
+
             yield return new WaitForSeconds(1f);
         }
+
+    }
+
+    public void AdjustHydrated(int change)
+    {
+        PlayerHydrated += change;
+        PlayerHydrated = Mathf.Clamp(PlayerHydrated, 0, 100);
+        PlayerContext.Instance.tempreture = PlayerHydrated > 0 ? 30 : 45;
+        UIManager.Instance.HydratedBar.value = PlayerHydrated;
+
     }
 
 	public void AdjustHP(int change){
 		HP += change;
 		HP = Mathf.Clamp(HP, 0, 100);
 		UIManager.Instance.HPBar.value = HP;
+        if (HP == 0) GameManager.Instance.GameOverByLowHP();
 	}
 
 	public void Refresh(){

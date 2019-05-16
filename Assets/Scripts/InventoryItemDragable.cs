@@ -64,7 +64,7 @@ public class InventoryItemDragable : MonoBehaviour,IBeginDragHandler,  IDragHand
     public void Use()
     {
 
-        if (!PuzzleManager.Instance.TrySolvePuzzle(myId, mySprite))
+        if (!GameManager.Instance.TrySolvePuzzle(myId, mySprite))
         {
             ItemEventManager.Instance.InvokeItemFunction(myId, mySprite, me.ActionInBagFunction, gameObject);
 

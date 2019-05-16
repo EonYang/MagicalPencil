@@ -92,8 +92,9 @@ public class InventoryManager : MonoBehaviour {
         }
     }
 
-    public void DropItem(int id){
+    public GameObject DropItem(int id){
 		int index = -1;
+        GameObject r = null;
 		for (int i = 0; i < Inventory.Count; i++)
 		{
 			if (Inventory[i].Id == id)
@@ -105,13 +106,15 @@ public class InventoryManager : MonoBehaviour {
 		if (index != -1)
 		{
             Sprite sprite = slots[index].transform.Find("ItemImage").GetComponent<Image>().sprite;
-			ItemSpawner.Instance.SpanwItem(Inventory[index], sprite);
+			r = ItemSpawner.Instance.SpanwItem(Inventory[index], sprite);
 			Inventory.RemoveAt(index);
 			Destroy(slots[index]);
 			slots.RemoveAt(index);    
             sprites.RemoveAt(index);
+
         }
-              
+        Debug.Log(r);
+        return r;  
 	}
 
     public IEnumerator DestroyItemById(int id)

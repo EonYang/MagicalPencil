@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/Level_Begining.unity
+    path: Assets/_Scenes/Slides.unity
+    guid: eb66f5b36ed1140cbb3faf1ea09e7aef
+  - enabled: 1
+    path: Assets/_Scenes/Level_Beginning.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/_Scenes/Level_HomeGuards.unity

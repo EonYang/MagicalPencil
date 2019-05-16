@@ -14,7 +14,9 @@ public class UIManager : MonoBehaviour {
 
 	public GameObject SketchBook;
 	public GameObject TextFeedbackPanel;
+    public GameObject BlackFade;
 	public Slider HPBar;
+    public Slider HydratedBar;
 	public GameObject MagicalPencilHighlighter;
 	public Button Magical_Pencil;
 	public Button CancelDrawingButton;
@@ -29,27 +31,41 @@ public class UIManager : MonoBehaviour {
 	public Button EndOfLevelUIMainButton;
 	public Button EndOfLevelUISecondButton;
 
+    private Image blackFadeImage;
+
+    public bool fading = false;
+
 
 	private void Awake()
 	{
 		if (Instance == null)
 		{
 			Instance = this;
+            //DontDestroyOnLoad(gameObject);
 		}else{
+            //Destroy(gameObject);
 		}
 	}
 
 	void Start () {
 
-		EndOfLevelUICanvas.gameObject.SetActive(false);
-
-		ActiveSketchBook(false);
-
-		MagicalPencilHighlighter.SetActive(false);
-		Magical_Pencil.onClick.AddListener(() => ActiveSketchBook(true));
-		CancelDrawingButton.onClick.AddListener(() => ActiveSketchBook(false));
+        Init();
 
 	}
+
+    public void Init()
+    {
+        EndOfLevelUICanvas.gameObject.SetActive(false);
+
+        ActiveSketchBook(false);
+
+        MagicalPencilHighlighter.SetActive(false);
+        Magical_Pencil.onClick.AddListener(() => ActiveSketchBook(true));
+        CancelDrawingButton.onClick.AddListener(() => ActiveSketchBook(false));
+
+        blackFadeImage = BlackFade.GetComponent<Image>();
+        StartCoroutine(Fade(1, 0, 1));
+    }
     
 	public void ActiveSketchBook(bool bol){
 		SketchBook.SetActive(bol);
@@ -80,7 +96,24 @@ public class UIManager : MonoBehaviour {
         yield return new WaitForSeconds(t*1.5f);
 		TextFeedbackPanel.SetActive(false);
 		Debug.Log("clearing: " + TextFeedbackPanel.GetComponentInChildren<Text>().text);
-    } 
+    }
+
+    public IEnumerator Fade(float alpha1, float alpha2, float time)
+    {
+        fading = true;
+        if (!BlackFade.activeSelf)
+        {
+            BlackFade.SetActive(true);
+        }
+        blackFadeImage.canvasRenderer.SetAlpha(alpha1);
+        blackFadeImage.CrossFadeAlpha(alpha2, time, false);
+        yield return new WaitForSeconds(time);
+        if(System.Math.Abs(alpha2) < 0.05f)
+        {
+            BlackFade.SetActive(false);
+        }
+        fading = false;
+    }
 
 
 }

@@ -31,7 +31,7 @@ public class OnGround : MonoBehaviour {
 	private Button Btn_1;
     private Sprite mySprite;
 
-    private BoxCollider2D collider;
+    private BoxCollider2D selfCollider;
 
 	[SerializeField]
 	private float yOffset = 0.01f;
@@ -47,30 +47,43 @@ public class OnGround : MonoBehaviour {
 		childCollider = transform.Find("Collider").gameObject;
 		childCollider.GetComponent<BoxCollider2D>().size = thisTrigger.size;
 
-		parentCanvas = GameObject.FindWithTag("HUD");
-		parentRect = parentCanvas.GetComponent<RectTransform>();
+		
+
+
+        InitUIobj();
+
+        selfCollider = GetComponent<BoxCollider2D>();
+
+	}
+
+    private void InitUIobj()
+    {
+        parentCanvas = GameObject.FindWithTag("HUD");
+        parentRect = parentCanvas.GetComponent<RectTransform>();
 
         Transform tran = parentCanvas.transform;
         tran.localPosition += Vector3.forward * 0.1f;
+        UIobj = Instantiate(UIPrefab, tran);
+        UIRect = UIobj.GetComponent<RectTransform>();
 
-		UIobj = Instantiate(UIPrefab, tran );      
-		UIRect = UIobj.GetComponent<RectTransform>();
 
+        Physics2D.IgnoreLayerCollision(9, 10);
+        UIobj.SetActive(false);
 
-		Physics2D.IgnoreLayerCollision(9, 10);
-		UIobj.SetActive(false);
-
-		itemNameUI = UIobj.transform.Find("ItemName/Text").GetComponent<Text>();
-
-        collider = GetComponent<BoxCollider2D>();
-
-	}
+        itemNameUI = UIobj.transform.Find("ItemName/Text").GetComponent<Text>();
+    }
 
     private void Update()
 
     {
+        if (UIobj == null)
+        {
 
-        if (UIobj.activeSelf)
+            InitUIobj();
+            Init(me);
+        }
+
+        if (UIobj != null && UIobj.activeSelf)
         {
             UIobj.SetActive(!UIManager.Instance.SketchBook.activeSelf);
             ShowAndPositionMenu();
@@ -95,7 +108,8 @@ public class OnGround : MonoBehaviour {
             mySprite = GetComponent<SpriteRenderer>().sprite;
             AddPickupBtn(mySprite);
         } 
-        else {
+
+        if(item.ActionOnGroundFunction != "") {
             AddGeneralUseBtn(item);
         }
 
@@ -144,6 +158,16 @@ public class OnGround : MonoBehaviour {
 			ShowAndPositionMenu();
 			UIobj.SetActive(true);
         }
+
+        if ( me.Name == "motorbike" && collision.gameObject.tag == "Enemy")
+        {
+            Debug.Log("hitting enemy");
+            Rigidbody2D rbMe = gameObject.GetComponent<Rigidbody2D>();
+            Rigidbody2D rgEnemy = collision.gameObject.GetComponent<Rigidbody2D>();
+            rgEnemy.freezeRotation = false;
+            rgEnemy.velocity += rbMe.velocity;
+            rgEnemy.velocity += Vector2.up * 5f;      
+        }
 	}
     
 	private void OnTriggerStay2D(Collider2D collision)
@@ -167,7 +191,7 @@ public class OnGround : MonoBehaviour {
 	private void ShowAndPositionMenu()
 
     {
-        Vector3 itemPos = Camera.main.WorldToViewportPoint(this.transform.position + new Vector3(0f,-collider.size.y/2*transform.localScale.y,0f));
+        Vector3 itemPos = Camera.main.WorldToViewportPoint(this.transform.position + new Vector3(0f,-selfCollider.size.y/2*transform.localScale.y,0f));
 		itemPos = new Vector3(itemPos.x * parentRect.sizeDelta.x - parentRect.sizeDelta.x / 2, itemPos.y * parentRect.sizeDelta.y - parentRect.sizeDelta.y / 2 + yOffset, itemPos.z);
         UIRect.anchoredPosition = itemPos;
     }
@@ -190,7 +214,7 @@ public class OnGround : MonoBehaviour {
 
     public void Use()
     { 
-        if (!PuzzleManager.Instance.TrySolvePuzzle(myId, mySprite ))
+        if (!GameManager.Instance.TrySolvePuzzle(myId, mySprite ))
         {
             ItemEventManager.Instance.InvokeItemFunction(myId, mySprite, me.ActionOnGroundFunction, gameObject);
         }
@@ -205,7 +229,7 @@ public class OnGround : MonoBehaviour {
     {
         Debug.Log("auto triggering");
         yield return new WaitForSeconds(2f);
-        if (!PuzzleManager.Instance.TrySolvePuzzle(myId, mySprite ))
+        if (!GameManager.Instance.TrySolvePuzzle(myId, mySprite ))
         {
             ItemEventManager.Instance.InvokeItemFunction(myId, mySprite, me.ActionAutoTriggerFunction, gameObject);
         }
@@ -220,6 +244,11 @@ public class OnGround : MonoBehaviour {
             Destroy(UIobj, 0.1f);
             Destroy(gameObject, 0.1f);
         }
+    }
+
+    void OnDestroy()
+    {
+        Destroy(UIobj);
     }
 
 }

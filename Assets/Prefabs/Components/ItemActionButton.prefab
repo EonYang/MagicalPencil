@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 222044986432731750}
   - component: {fileID: 114783982753620020}
   - component: {fileID: 114901691294842214}
+  - component: {fileID: 114796272118356872}
   m_Layer: 5
   m_Name: ItemActionButton
   m_TagString: Untagged
@@ -58,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -106,6 +107,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114796272118356872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1705422657385202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e73daaaf4d47432a82effb4b2b7e7d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114901691294842214
 MonoBehaviour:
   m_ObjectHideFlags: 1

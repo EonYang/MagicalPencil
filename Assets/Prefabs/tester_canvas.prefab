@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 223129618054661312}
   - component: {fileID: 114772019140432728}
   - component: {fileID: 114343764758386738}
+  - component: {fileID: 114264873966477938}
   m_Layer: 5
   m_Name: tester_canvas
   m_TagString: Untagged
@@ -321,7 +322,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ecd80a7c45c4940f5b9953c6a48d6ba2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 63012ee6894f94afd9c86f5fa4b4be06, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -348,7 +349,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ecd80a7c45c4940f5b9953c6a48d6ba2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 63012ee6894f94afd9c86f5fa4b4be06, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -375,7 +376,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ecd80a7c45c4940f5b9953c6a48d6ba2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 63012ee6894f94afd9c86f5fa4b4be06, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -383,6 +384,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114264873966477938
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1660531959565778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb090925f54e4bd0ad02551194c29a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114343764758386738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -538,7 +550,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ecd80a7c45c4940f5b9953c6a48d6ba2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 63012ee6894f94afd9c86f5fa4b4be06, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -617,7 +629,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ecd80a7c45c4940f5b9953c6a48d6ba2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 63012ee6894f94afd9c86f5fa4b4be06, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -778,7 +790,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 295
+          m_IntArgument: 226
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

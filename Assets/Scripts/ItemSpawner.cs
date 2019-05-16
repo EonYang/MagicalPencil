@@ -25,7 +25,9 @@ public class ItemSpawner : MonoBehaviour {
         Init();
 	}
 
-	public GameObject SpanwItem( Item item, Sprite sprite){
+    public GameObject SpanwItem(Item item, Sprite sprite)
+            //public GameObject SpanwItem(Item item, Sprite sprite, float xOffset = 0, float yOffset = 0)
+    {
 
         if (item.Prerequisite)
         {
@@ -33,7 +35,9 @@ public class ItemSpawner : MonoBehaviour {
         }
 
         int direction = PlayerContext.Instance.facingRightSide  ? 1 : -1;
-		GameObject toAttach = Instantiate(spawnBase, player.transform.position + Vector3.right * direction * 0.5f, player.transform.rotation) as GameObject;
+        //Vector3 pos = player.transform.position + (Vector3.right + new Vector3(xOffset,yOffset,0)) * direction * 0.5f;
+         Vector3 pos = player.transform.position + (Vector3.right) * direction * 0.5f;
+		GameObject toAttach = Instantiate(spawnBase, pos, player.transform.rotation) as GameObject;
 		Spawned.Add(toAttach);
 		GameObject newOne = Spawned[Spawned.Count - 1];
 		float size = item.SizeH * spriteSizeFactor;
