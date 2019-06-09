@@ -16,6 +16,8 @@ public partial class ItemEventManager : MonoBehaviour {
     [SerializeField]
     private GameObject spotLightPrefab;
 
+    private Vector2 offset = Vector2.zero;
+
 
     public void Ride(Item item, Sprite sprite, GameObject obj)
     {
@@ -26,44 +28,61 @@ public partial class ItemEventManager : MonoBehaviour {
         }
 
         //GameObject player = GameObject.FindWithTag("Player");
-        player.GetComponent<BoxCollider2D>().offset += Vector2.down/40 * item.SizeH;
-        PlayerContext.Instance.speedFactor = item.Speed/100;
-        PlayerContext.Instance.motorcycling = true;
+        UIManager.Instance.ShowTip(item.StoryOnUse);
 
+        StartCoroutine(Ride2(obj, item));
+
+    }
+
+    private IEnumerator Ride2(GameObject obj, Item item)
+    {
         obj.name = "Ride";
+
+        // offset player animation
+        offset = Vector2.down / 40f * item.SizeH;
+        player.GetComponent<BoxCollider2D>().offset += offset;
+        PlayerContext.Instance.speedFactor = item.Speed / 100f;
+
+        // add headlight
         if(item.Name == "motorbike" && obj.transform.Find("motorLight") == null)
         {
             GameObject motorLight = Instantiate(spotLightPrefab, obj.transform);
             motorLight.name = "motorLight";
             motorLight.transform.localPosition = new Vector3(2, 2, -1); 
         }
-        StartCoroutine(Ride2(obj, item));
 
-        UIManager.Instance.ShowTip(item.StoryOnUse);
-
-
-    }
-
-    private IEnumerator Ride2(GameObject obj, Item item)
-    {
         yield return new WaitForSeconds(0.2f);
-        //GameObject player = GameObject.FindWithTag("Player");
+
+        // move vehicle to the center
         obj.transform.parent = player.transform;
-        Vector3.Scale(obj.transform.localPosition, (Vector3.up + Vector3.forward));
-        //obj.transform.localPosition =  * );
+        Vector3 ridePosition = obj.transform.localPosition;
+        ridePosition.x = 0;
+        obj.transform.localPosition = ridePosition;
+
+        //Vector3.Scale(obj.transform.localPosition, (Vector3.up + Vector3.forward));
         obj.GetComponent<Rigidbody2D>().simulated = false;
         obj.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -1f);
         player.AddComponent<StopRiding>().me = item;
+
+        if (item.Name == "skateboard")
+        {
+            PlayerAnimationManager.Instance.SkateBoarding();
+        }
+        else
+        {
+            PlayerAnimationManager.Instance.Cycling();
+        }
 
     }
 
     public void StopRide( int size)
     {
         //GameObject player = GameObject.FindWithTag("Player");
-        player.GetComponent<BoxCollider2D>().offset += Vector2.up/40 * size;
+        player.GetComponent<BoxCollider2D>().offset -= offset;
         GameObject ride = player.transform.Find("Ride").gameObject;
         PlayerContext.Instance.speedFactor = 1;
-        PlayerContext.Instance.motorcycling = false;
+        PlayerAnimationManager.Instance.Walking();
+        //PlayerContext.Instance.motorcycling = false;
         //ride.transform.localPosition = player.transform.localPosition;
         ride.transform.parent = null;
         ride.GetComponent<Rigidbody2D>().simulated = true;

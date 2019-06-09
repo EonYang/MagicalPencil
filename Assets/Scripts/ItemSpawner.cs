@@ -40,7 +40,7 @@ public class ItemSpawner : MonoBehaviour {
 		GameObject toAttach = Instantiate(spawnBase, pos, player.transform.rotation) as GameObject;
 		Spawned.Add(toAttach);
 		GameObject newOne = Spawned[Spawned.Count - 1];
-		float size = item.SizeH * spriteSizeFactor;
+		float size = Mathf.Clamp(item.SizeH, 20,200) * spriteSizeFactor;
         Vector3 size3 = new Vector3(size, size, size);
 		newOne.GetComponent<SpriteRenderer>().sprite = sprite;
 		newOne.transform.localScale = size3;

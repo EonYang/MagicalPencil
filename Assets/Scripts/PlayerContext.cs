@@ -17,6 +17,7 @@ public class PlayerContext: MonoBehaviour
     public bool motorcycling = false;
     public string lastSceneName = "";
     public GameObject focus = null;
+    public int riding = 0;
 
     public float speedFactor = 1;
 

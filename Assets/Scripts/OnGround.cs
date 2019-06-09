@@ -115,7 +115,6 @@ public class OnGround : MonoBehaviour {
 
         AddDestroyBtn();
 
-
     }
 
     private void AddPickupBtn(Sprite sprite)

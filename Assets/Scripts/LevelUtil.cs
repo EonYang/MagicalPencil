@@ -22,10 +22,40 @@ public static class LevelUtil {
 	public static void RestartScene()
     {
         Debug.Log("restarting scene");
-        GameObject.FindWithTag("Singleton").GetComponent<DestroySingleton>().SelfDestroy();
+        KillAllSingleton();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public static void KillAllSingleton()
+    {
+        GameObject[] all = GameObject.FindGameObjectsWithTag("Singleton");
+        foreach (var go in all)
+        {
+            go.GetComponent<DestroySingleton>().SelfDestroy();
+        }
+    }
+
+    public static int GetLevelIndex()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
+    }
+
+    public static void GoToLevelByIndex(int ind)
+    {
+        SceneManager.LoadScene(ind);
+    }
+
+    public static void GoToNextLevel()
+    {
+        int l = Mathf.Clamp(GetLevelIndex() + 1,0,3);
+        GoToLevelByIndex(l);
+    }
+
+    public static void GoToLastLevel()
+    {
+        int l = Mathf.Clamp(GetLevelIndex() - 1,0,3);
+        GoToLevelByIndex(l);
+    }
 
     
 }

@@ -70,7 +70,32 @@ public class EnemyHP : MonoBehaviour {
 
     private void Die()
     {
+
+
+        GameObject spawnerObj = GameObject.FindWithTag("EnemySpawner");
+
+        if (spawnerObj != null)
+        {
+            SpawnEnemies spawner = spawnerObj.GetComponent<SpawnEnemies>();
+            int ind = spawner.enemies.IndexOf(gameObject);
+
+            if (ind >= 0)
+            {
+                spawner.enemies.Remove(gameObject);
+
+                StartCoroutine(spawner.Spawn());
+
+                Debug.Log(" enemy count: ");
+                Debug.Log(spawner.enemies.Count);
+
+            }
+        }
+
+
+
+
         Destroy(UIobj);
+
         Destroy(gameObject);
     }
 }

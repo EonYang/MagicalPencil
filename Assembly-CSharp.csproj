@@ -61,18 +61,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BulletBehavior.cs" />
-    <Compile Include="Assets\EnemyVelocity.cs" />
-    <Compile Include="Assets\HomeGuardQuestTrigger.cs" />
     <Compile Include="Assets\PinchToZoom.cs" />
     <Compile Include="Assets\Scripts\_Examples\InputManager.cs" />
     <Compile Include="Assets\Scripts\_Examples\InputState.cs" />
     <Compile Include="Assets\Scripts\_ItemBehaviors\ClassDefaultStory.cs" />
     <Compile Include="Assets\Scripts\_ItemBehaviors\ItemBehavior_AllowCook.cs" />
     <Compile Include="Assets\Scripts\_ItemBehaviors\ItemBehavior_AllowElecticiry.cs" />
+    <Compile Include="Assets\Scripts\_ItemBehaviors\ItemBehavior_AttackPlayer.cs" />
+    <Compile Include="Assets\Scripts\_ItemBehaviors\ItemBehavior_AttackPlayerMono.cs" />
     <Compile Include="Assets\Scripts\_ItemBehaviors\ItemBehavior_CookAndEat.cs" />
     <Compile Include="Assets\Scripts\_ItemBehaviors\ItemBehavior_CreateObstacle.cs" />
     <Compile Include="Assets\Scripts\_ItemBehaviors\ItemBehavior_Door.cs" />
+    <Compile Include="Assets\Scripts\_ItemBehaviors\ItemBehavior_Drive.cs" />
     <Compile Include="Assets\Scripts\_ItemBehaviors\ItemBehavior_EatAndDrink.cs" />
     <Compile Include="Assets\Scripts\_ItemBehaviors\ItemBehavior_FlyAway.cs" />
     <Compile Include="Assets\Scripts\_ItemBehaviors\ItemBehavior_InitTV.cs" />
@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\_ItemBehaviors\ItemBehavior_LightUp.cs" />
     <Compile Include="Assets\Scripts\_ItemBehaviors\ItemBehavior_Ride.cs" />
     <Compile Include="Assets\Scripts\_ItemBehaviors\ItemBehavior_RunAway.cs" />
+    <Compile Include="Assets\Scripts\_ItemBehaviors\ItemBehavior_SayHi.cs" />
     <Compile Include="Assets\Scripts\_ItemBehaviors\ItemBehavior_Smell.cs" />
     <Compile Include="Assets\Scripts\_ItemBehaviors\ItemBehavior_Stab.cs" />
     <Compile Include="Assets\Scripts\_ItemBehaviors\ItemBehavior_StartRaining.cs" />
@@ -93,20 +94,25 @@
     <Compile Include="Assets\Scripts\_test\drawHull.cs" />
     <Compile Include="Assets\Scripts\_test\GetSpriteByName.cs" />
     <Compile Include="Assets\Scripts\_test\playerMovement.cs" />
+    <Compile Include="Assets\Scripts\BulletBehavior.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CanvasGetMainCamera.cs" />
     <Compile Include="Assets\Scripts\ChangeColor.cs" />
     <Compile Include="Assets\Scripts\ChangeColorSprite.cs" />
     <Compile Include="Assets\Scripts\Classes.cs" />
     <Compile Include="Assets\Scripts\DestroySingleton.cs" />
+    <Compile Include="Assets\Scripts\DevFunctions.cs" />
     <Compile Include="Assets\Scripts\DoorSceneSpecial.cs" />
     <Compile Include="Assets\Scripts\EnemyHP.cs" />
+    <Compile Include="Assets\Scripts\EnemyVelocity.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\HomeGuardQuestTrigger.cs" />
     <Compile Include="Assets\Scripts\Initer.cs" />
     <Compile Include="Assets\Scripts\InventoryItemDragable.cs" />
     <Compile Include="Assets\Scripts\InventoryManager.cs" />
     <Compile Include="Assets\Scripts\ItemEventManager.cs" />
     <Compile Include="Assets\Scripts\ItemSpawner.cs" />
+    <Compile Include="Assets\Scripts\KillAllSingletonsOnStart.cs" />
     <Compile Include="Assets\Scripts\LevelUtil.cs" />
     <Compile Include="Assets\Scripts\OnGround.cs" />
     <Compile Include="Assets\Scripts\Paintable.cs" />
@@ -119,10 +125,11 @@
     <Compile Include="Assets\Scripts\Scene1PuzzelTrigger.cs" />
     <Compile Include="Assets\Scripts\SketchBookManager.cs" />
     <Compile Include="Assets\Scripts\SlideShowManager.cs" />
+    <Compile Include="Assets\Scripts\SpawnEnemies.cs" />
     <Compile Include="Assets\Scripts\Tap2ZoomIn.cs" />
     <Compile Include="Assets\Scripts\TouchToMove.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
-    <Compile Include="Assets\SpawnEnemies.cs" />
+    <Compile Include="Assets\ShowCredits.cs" />
     <Compile Include="Assets\Tester.cs" />
     <Compile Include="Assets\UniversalMediaPlayer\Scripts\ARVideoCanvasHelper.cs" />
     <Compile Include="Assets\UniversalMediaPlayer\Scripts\EventsHandlerExample.cs" />

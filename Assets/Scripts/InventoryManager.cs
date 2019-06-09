@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class InventoryManager : MonoBehaviour {
 
@@ -16,6 +17,8 @@ public class InventoryManager : MonoBehaviour {
 
 	[SerializeField]
 	private GameObject slotPrefab;
+
+    List<string> atkWords = new List<string>();
 
 	private void Awake()
 	{
@@ -32,6 +35,9 @@ public class InventoryManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Init();
+        atkWords.Add("Wield");
+        atkWords.Add("Throw");
+        atkWords.Add("Stab");
 	}
 	
 	// Update is called once per frame
@@ -48,7 +54,34 @@ public class InventoryManager : MonoBehaviour {
 		//}
 	}
 
-	public void AddItem(int id, Sprite sprite){
+    public void UseFirstWeapon()
+    {
+        int ind = -1;
+
+        foreach (Item item in Inventory)
+        {
+            ind++;
+            Debug.Log(ind);
+
+
+            if(atkWords.IndexOf(item.ActionInBagFunction) >= 0)
+            {
+                Debug.Log("find weapon");
+              
+                InventoryItemDragable weapon = slots[ind].transform.Find("ItemImage").gameObject.GetComponent<InventoryItemDragable>();
+                weapon.Use();
+                break;
+            }
+
+        }
+    }
+
+    public void AddItem(int id, Sprite sprite){
+
+        if (slots.Count == 0)
+        {
+            StartCoroutine(UIManager.Instance.ShowClickToUse());
+        }
 
 		if (slots.Count < SlotsNum)
 		{

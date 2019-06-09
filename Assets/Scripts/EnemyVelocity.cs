@@ -90,6 +90,11 @@ public class EnemyVelocity : MonoBehaviour {
 
     }
 
+    private void OnMouseDown()
+    {
+        InventoryManager.Instance.UseFirstWeapon();
+    }
+
 
 
 }

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114530605262088794}
   m_Layer: 0
   m_Name: UMP
-  m_TagString: Untagged
+  m_TagString: UMP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _renderingObjects:
   - {fileID: 1797345210427106}
-  _path: rtmp://128.122.151.187:1935/live2/itp
+  _path: https://www.youtube.com/watch?v=1Wh8RzcQZr4
   _autoPlay: 1
   _loop: 0
   _loopSmooth: 0

@@ -6,17 +6,18 @@ public class SpawnEnemies : MonoBehaviour {
 
     // Use this for initialization
     public GameObject enemyPrefab;
-    List<GameObject> enemies = new List<GameObject>();
+    public List<GameObject> enemies = new List<GameObject>();
 	void Start () {
         StartCoroutine(Spawn());
         Physics2D.IgnoreLayerCollision(11,11);
         //Physics2D.IgnoreLayerCollision(9,11);
 
 	}
+        
 
-    IEnumerator Spawn()
+    public IEnumerator Spawn()
     {
-        while (enemies.Count < 8) 
+        while (enemies.Count < 3) 
         {
             yield return new WaitForSeconds(1);
             GameObject e =  SpawnEnemy();

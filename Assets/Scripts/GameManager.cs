@@ -146,6 +146,7 @@ public class GameManager : MonoBehaviour {
         Debug.Log("game over called");
         UIManager.Instance.EndOfLevelUIH1.text = "Game Over";
         UIManager.Instance.EndOfLevelUIH3.text = "You're dead.";
+        UIManager.Instance.ActiveSketchBook(false);
         UIManager.Instance.EndOfLevelUIMainButton.gameObject.SetActive(true);
         UIManager.Instance.EndOfLevelUIMainButton.onClick.AddListener(() => StartCoroutine(RestartLevel()));
         UIManager.Instance.EndOfLevelUIMainButton.GetComponentInChildren<Text>().text = "Retry";
@@ -163,6 +164,16 @@ public class GameManager : MonoBehaviour {
         PlayerHP.Instance.AdjustHP(+100);
         LevelUtil.RestartScene();
         PlayerAnimationManager.Instance.Init();
+    }
+
+    public void ResetGame()
+    {
+        StartCoroutine(GoToSlides());
+    }
+    public IEnumerator GoToSlides()
+    {
+        LevelUtil.GoToLevel("Slides");
+        yield return new WaitForSeconds(0.5f);
     }
 
 }

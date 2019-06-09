@@ -19,7 +19,7 @@ public class StopRiding : MonoBehaviour {
     public void StopRidingAndDestroySelf()
     {
         Debug.Log("called 1");
-        ItemEventManager.Instance.StopRide( me.SizeH);
+        ItemEventManager.Instance.StopRide(me.SizeH);
         Destroy(this);
     }
 }

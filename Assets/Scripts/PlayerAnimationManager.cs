@@ -42,16 +42,41 @@ public class PlayerAnimationManager : MonoBehaviour {
         Init();
 		
 	}
+
+    public void Driving()
+    {
+        PlayerContext.Instance.riding = 2;
+        animator.SetInteger("riding", 2);
+    }
+
+    public void Cycling()
+    {
+        PlayerContext.Instance.riding = 1;
+        animator.SetInteger("riding", 1);
+    }
+
+    public void SkateBoarding()
+    {
+        PlayerContext.Instance.riding = 3;
+        animator.SetInteger("riding", 3);
+    }
+
+    public void Walking()
+    {
+        PlayerContext.Instance.riding = 0;
+        animator.SetInteger("riding", 0);
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (PlayerContext.Instance.motorcycling != animator.GetBool("cycling"))
-        {
-            animator.SetBool("cycling", PlayerContext.Instance.motorcycling);
-            Debug.Log("setting cycling");
-        }
-        else if(!PlayerContext.Instance.motorcycling)
+        //if (PlayerContext.Instance.motorcycling != animator.GetBool("cycling"))
+        //{
+        //    animator.SetBool("cycling", PlayerContext.Instance.motorcycling);
+        //    Debug.Log("setting cycling");
+        //}
+        //else 
+        if(PlayerContext.Instance.riding == 0)
         {
          velo = Mathf.Abs(body2d.velocity.x);
 

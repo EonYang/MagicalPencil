@@ -12,6 +12,8 @@ TagManager:
   - HydratedBarUI
   - Singleton
   - Enemy
+  - UMP
+  - EnemySpawner
   layers:
   - Default
   - TransparentFX

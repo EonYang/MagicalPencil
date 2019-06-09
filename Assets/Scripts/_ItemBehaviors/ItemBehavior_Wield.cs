@@ -47,11 +47,13 @@ public partial class ItemEventManager : MonoBehaviour {
             weaponImg.transform.localPosition = newPos;
         }
         yield return new WaitForSeconds(0.1f);
-        float weaponRadius = item.SizeH / 100;
-        float distance = 0.3f;
+        float weaponRadius = item.SizeH / 70f;
+        Debug.Log("radius:");
+        Debug.Log(weaponRadius);
+        float distance = 0.1f;
         Vector3 attackPos = new Vector3(PlayerContext.Instance.facingRightSide? distance : -distance, 0, 0);
         Collider2D[] enemieToDamage = Physics2D.OverlapCircleAll(player.transform.localPosition + attackPos, weaponRadius, enemyLayer);
-
+        Debug.Log(enemieToDamage.Length);
         foreach( Collider2D enemy in enemieToDamage)
         {
             enemy.GetComponent<EnemyHP>().TakeDamage(item.Attack);

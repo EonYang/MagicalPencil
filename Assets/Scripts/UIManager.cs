@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
 
 	public static UIManager Instance;
+    public GameObject devButtons;
+    public GameObject clickToUse;
 
 	//public Canvas GameUIPrefeb;
 	//public Canvas EndOfLevelUIPrefeb;
@@ -62,9 +64,10 @@ public class UIManager : MonoBehaviour {
         MagicalPencilHighlighter.SetActive(false);
         Magical_Pencil.onClick.AddListener(() => ActiveSketchBook(true));
         CancelDrawingButton.onClick.AddListener(() => ActiveSketchBook(false));
-
+        devButtons.SetActive(false);
         blackFadeImage = BlackFade.GetComponent<Image>();
         StartCoroutine(Fade(1, 0, 1));
+        clickToUse.SetActive(false);
     }
     
 	public void ActiveSketchBook(bool bol){
@@ -113,6 +116,23 @@ public class UIManager : MonoBehaviour {
             BlackFade.SetActive(false);
         }
         fading = false;
+    }
+
+    public IEnumerator ShowClickToUse()
+    {
+
+
+        for (int i = 0; i < 3; i++)
+        {
+            clickToUse.SetActive(true);
+            yield return new WaitForSeconds(0.2f);
+            clickToUse.SetActive(false);
+            yield return new WaitForSeconds(0.2f);
+
+        }
+        clickToUse.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        clickToUse.SetActive(false);
     }
 
 

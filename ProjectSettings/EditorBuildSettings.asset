@@ -15,11 +15,11 @@ EditorBuildSettings:
     path: Assets/_Scenes/Level_HomeGuards.unity
     guid: 53d6bd8eb376b4e56871c6d4026b1b45
   - enabled: 1
-    path: Assets/_Scenes/Level_Door.unity
-    guid: 142d2c691495e49039846b5be5015cfd
-  - enabled: 1
     path: Assets/_Scenes/Level_Desert.unity
     guid: 17727d6c4f60d4b11ad15798dae87ee6
+  - enabled: 1
+    path: Assets/_Scenes/Level_Door.unity
+    guid: 142d2c691495e49039846b5be5015cfd
   - enabled: 1
     path: Assets/_Scenes/Level_Prison.unity
     guid: c0f240396042f458ebd52e3c029038f4

@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4439333263574598}
   - component: {fileID: 212551462140996140}
   - component: {fileID: 114700581355926864}
+  - component: {fileID: 114164816462593846}
   m_Layer: 8
   m_Name: SpriteBasePrefab
   m_TagString: Untagged
@@ -96,6 +97,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114164816462593846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1767775745225190}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe063517608274c81809458d1578d84b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 100
+  HPBarPrefab: {fileID: 1874641457465460, guid: c95fd0e06e3b14285aafc11aea397a6e,
+    type: 2}
+  yOffset: 10
 --- !u!114 &114700581355926864
 MonoBehaviour:
   m_ObjectHideFlags: 1

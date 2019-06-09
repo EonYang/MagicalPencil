@@ -38,7 +38,7 @@ public class Scene_Based_Settings : MonoBehaviour {
         {
             UIManager.Instance.HydratedBar.transform.parent.gameObject.SetActive(true);
             PlayerContext.Instance.inDesert = true;
-            if (PlayerContext.Instance.motorcycling)
+            if (PlayerContext.Instance.riding != 0)
             {
                 player.gameObject.GetComponent<StopRiding>().StopRidingAndDestroySelf();
             }
